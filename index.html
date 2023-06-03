@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150vh;
+      }
+    </style>
+  </head>
+  <body>
+  <h1 style="color: red; text-align: center;"> BOOTSTRAP TASK-3</h1>
+    <div class="center">
+      <form id="contact_form" class="was-validated" action="submit.php" method="POST">
+        <div class="col-md-8">
+          <label for="first_name" class="form-label">First Name:</label>
+          <input type="text" class="form-control" id="first_name" name="first_name" required>
+        </div>
+
+        <div class="col-md-8">
+          <label for="last_name" class="form-label">Last Name:</label>
+          <input type="text" class="form-control" id="last_name" name="last_name" required>
+        </div>
+
+        <div class="col-md-8">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+
+        <div class="col-md-8">
+          <label for="phone" class="form-label">Phone:</label>
+          <input type="tel" class="form-control" id="phone" name="phone" required>
+        </div>
+
+        <div class="col-md-8">
+          <label for="address" class="form-label">Address:</label>
+          <input type="text" class="form-control" id="address" name="address" required>
+        </div>
+
+        <div class="col-md-8">
+          <label for="city" class="form-label">City:</label>
+          <input type="text" class="form-control" id="city" name="city" required>
+        </div>
+
+        <div class="col-md-8">
+          <label for="state" class="form-label">State:</label>
+          <select class="form-select" id="state" name="state" required>
+            <option value="">Select State</option>
+            <option value="KA">KARNATAKA</option>
+            <option value="TN">TELANGANA</option>
+            <!-- ... List of all states ... -->
+            <option value="TN">TAMIL NADU</option>
+          </select>
+        </div>
+
+        <div class="col-md-8">
+          <label for="zip" class="form-label">Zip Code:</label>
+          <input type="text" class="form-control" id="zip" name="zip" required>
+        </div>
+
+        <div class="col-md-9">
+          <label for="comment" class="form-label">Comment:</label>
+          <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+          <button class="btn btn-primary" type="submit">Submit Form</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+    <script>
+      $(document).ready(function() {
+        $('#contact_form').bootstrapValidator({
+          fields: {
+            first_name: {
+              validators: {
+                stringLength: {
+                  min: 2,
+                  message: 'Please enter at least 2 characters for the first name'
+                },
+                notEmpty: {
+                  message: 'Please supply your first name'
+                }
+              }
+            },
+            last_name: {
+              validators: {
+                stringLength: {
+                  min: 2,
+                  message: 'Please enter at least 2 characters for the last name'
+                },
+                notEmpty: {
+                  message: 'Please supply your last name'
+                }
+              }
+            },
+            email: {
+              validators: {
+                notEmpty: {
+                  message: 'Please supply your email address'
+                },
+                emailAddress: {
+                  message: 'Please supply a valid email address'
+                }
+              }
+            },
+            phone: {
+              validators: {
+                notEmpty: {
+                  message: 'Please supply your phone number'
+                },
+                phone: {
+                  country: 'US',
+                  message: 'Please supply a valid phone number with area code'
+                }
+              }
+            },
+            address: {
+              validators: {
+                stringLength: {
+                  min: 8,
+                  message: 'Please enter at least 8 characters for the address'
+                },
+                notEmpty: {
+                  message: 'Please supply your street address'
+                }
+              }
+            },
+            city: {
+              validators: {
+                stringLength: {
+                  min: 4,
+                  message: 'Please enter at least 4 characters for the city'
+                },
+                notEmpty: {
+                  message: 'Please supply your city'
+                }
+              }
+            },
+            state: {
+              validators: {
+                notEmpty: {
+                  message: 'Please select your state'
+                }
+              }
+            },
+            zip: {
+              validators: {
+                notEmpty: {
+                  message: 'Please supply your zip code'
+                },
+                zipCode: {
+                  country: 'US',
+                  message: 'Please supply a valid zip code'
+                }
+              }
+            },
+            comment: {
+              validators: {
+                stringLength: {
+                  min: 10,
+                  max: 200,
+                  message: 'Please enter at least 10 characters and no more than 200 for the comment'
+                },
+                notEmpty: {
+                  message: 'Please supply a description of your project'
+                }
+              }
+            }
+          }
+        })
+        .on('success.form.bv', function(e) {
+          $('#success_message').slideDown({ opacity: "show" }, "slow");
+          $('#contact_form').data('bootstrapValidator').resetForm();
+
+          e.preventDefault();
+
+          var $form = $(e.target);
+          var bv = $form.data('bootstrapValidator');
+
+          $.post($form.attr('action'), $form.serialize(), function(result) {
+            console.log(result);
+          }, 'json');
+        });
+      });
+    </script>
+  </body>
+</html>
